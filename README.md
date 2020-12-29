@@ -1,2 +1,2 @@
-# GGTwo
-Iteration over GoodGame Scratch Project
+# goodgame
+The one stop shop for game reviews.
