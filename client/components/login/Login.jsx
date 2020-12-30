@@ -49,13 +49,18 @@ class Login extends React.Component {
 
 
   render() {
+
+    // if the component recieves data from server when the user logs in or creates an account
+    // redirect the user to the dashboard
     if (this.state.redirect) {
       return <Redirect to="/dashboard" />;
     }
+
+
     return (
       <div>
         <h1>GG</h1>
-        <form>
+        <form className='form'>
           <input
             onChange={(e) => this.handleChange(e)}
             type="text"
@@ -72,13 +77,11 @@ class Login extends React.Component {
             placeholder="password"
           />
           <br />
-          <Link to="/dashboard">
             <input
               onClick={this.submitChange}
               type="submit"
               value="Login"
             />
-          </Link>
           <input
             onClick={this.submitChange}
             type="submit"
