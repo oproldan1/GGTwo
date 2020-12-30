@@ -19,9 +19,9 @@ app.use('/user', userRouter);
 app.use('/games', gamesRouter);
 // app.use('/reviews', reviewsRouter);
 
-app.use('/dashboard', (req, res) => res.sendFile(path.resolve(__dirname, '../client/public/index.html')));
+// app.use('/dashboard', (req, res) => res.sendFile(path.resolve(__dirname, '../client/public/index.html')));
 
-app.use('/', (req, res) => res.sendFile(path.resolve(__dirname, '../client/public/index.html')))
+//app.use('/', (req, res) => res.sendFile(path.resolve(__dirname, '../client/public/index.html')))
 
 // global error handler
 app.use((err, req, res, next) => res.status(500).send('Error in Server: '))
