@@ -17,7 +17,7 @@ app.use(express.static('client'))
 // Routes
 app.use('/user', userRouter);
 app.use('/games', gamesRouter);
-// app.use('/reviews', reviewsRouter);
+//app.use('/reviews', reviewsRouter);
 
 // app.use('/dashboard', (req, res) => res.sendFile(path.resolve(__dirname, '../client/public/index.html')));
 

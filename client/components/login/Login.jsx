@@ -21,27 +21,27 @@ class Login extends React.Component {
     if (e.target.value === 'Login') {
       fetch('/user/login', {
         method: 'POST',
+        body: JSON.stringify({ username: this.state.username, password: this.state.password }),
+        headers: { 'Content-Type': 'application/JSON' }
+      })
+        .then(res => res.json())
+        .then(data => {
+          //  console.log() <Redirect to="/dashboard" />
+          // console.log(this.props.history)
+          // this.props.history.push('/dashboard');
+          this.setState({ redirect: true });
+        }).catch(
+          (err) => console.log(err)
+        )
+    } else {
+      fetch('/user/signup', {
+        method: 'POST',
         body: JSON.stringify(this.state),
         headers: { 'Content-Type': 'application/JSON' }
       })
         .then(res => res.json())
         .then(data => {
-        //  console.log() <Redirect to="/dashboard" />
-        // console.log(this.props.history)
-        // this.props.history.push('/dashboard');
-        this.setState( {redirect: true} );
-        }).catch(
-          (err) => console.log(err)
-        )
-    } else {
-        fetch('/user/signup', {
-          method: 'POST',
-          body: JSON.stringify(this.state),
-          headers: { 'Content-Type': 'application/JSON' }
-        })
-        .then(res => res.json())
-        .then(data => {
-          this.setState( {redirect: true} );
+          this.setState({ redirect: true });
         })
         .catch((err) => console.log(err))
     }
@@ -49,18 +49,23 @@ class Login extends React.Component {
 
 
   render() {
+
+    // if the component recieves data from server when the user logs in or creates an account
+    // redirect the user to the dashboard
     if (this.state.redirect) {
       return <Redirect to="/dashboard" />;
     }
+
+
     return (
       <div>
         <h1>GG</h1>
-        <form>
+        <form className='form'>
           <input
             onChange={(e) => this.handleChange(e)}
             type="text"
             name="username"
-            value={ this.state.username }
+            value={this.state.username}
             placeholder="username"
           />
           <br />
@@ -68,17 +73,15 @@ class Login extends React.Component {
             onChange={(e) => this.handleChange(e)}
             type="text"
             name="password"
-            value={ this.state.password }
+            value={this.state.password}
             placeholder="password"
           />
           <br />
-          <Link to="/dashboard">
-          <input
-          onClick={this.submitChange}
-          type="submit"
-          value="Login"
-          />
-          </Link>
+            <input
+              onClick={this.submitChange}
+              type="submit"
+              value="Login"
+            />
           <input
             onClick={this.submitChange}
             type="submit"
