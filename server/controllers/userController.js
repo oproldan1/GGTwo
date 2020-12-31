@@ -1,4 +1,4 @@
-const db = require('../db/database.js')
+const db = require('../models/dbModels.js')
 
 // queries should only be to the user Table
 const userController = {}
