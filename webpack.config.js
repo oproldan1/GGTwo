@@ -9,7 +9,7 @@ module.exports = {
   },
   devServer: {
     publicPath: path.resolve(__dirname, '/build'),
-    port: 8080,
+    port: 3000,
     proxy: {
       '/': 'http://localhost:3000',
     },

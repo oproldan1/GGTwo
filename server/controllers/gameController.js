@@ -1,4 +1,4 @@
-const db = require('../models/dbModels.js');
+const db = require('../../server/db/database.js');
 
 const gameController = {};
 
